@@ -1,12 +1,10 @@
 import { useEffect, useState, useRef } from "react"
-import { useTheme } from "@/contexts/ThemeContext"
 import { cn } from "@/lib/utils"
 
 export function LiquidCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isVisible, setIsVisible] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
-  const { theme } = useTheme()
   const cursorRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

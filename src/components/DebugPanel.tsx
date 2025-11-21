@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 
 interface NavItemDebug {
   label: string
@@ -93,8 +93,6 @@ interface DebugInfo {
 export function DebugPanel() {
   const [debugInfo, setDebugInfo] = useState<DebugInfo | null>(null)
   const [isVisible, setIsVisible] = useState(true)
-  const sidebarRef = useRef<HTMLElement | null>(null)
-  const contentRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     const updateDebugInfo = () => {
@@ -167,6 +165,18 @@ export function DebugPanel() {
         bottom: 0,
         zIndex: 0,
         isVisible: false,
+        inViewport: {
+          fullyVisible: false,
+          partiallyVisible: false,
+          aboveViewport: false,
+          belowViewport: false,
+          leftOfViewport: false,
+          rightOfViewport: false,
+          topOffset: 0,
+          bottomOffset: 0,
+          leftOffset: 0,
+          rightOffset: 0
+        },
         computedStyle: {
           position: '',
           display: '',
@@ -244,6 +254,18 @@ export function DebugPanel() {
         bottom: 0,
         marginLeft: 0,
         isVisible: false,
+        inViewport: {
+          fullyVisible: false,
+          partiallyVisible: false,
+          aboveViewport: false,
+          belowViewport: false,
+          leftOfViewport: false,
+          rightOfViewport: false,
+          topOffset: 0,
+          bottomOffset: 0,
+          leftOffset: 0,
+          rightOffset: 0
+        },
         computedStyle: {
           display: '',
           opacity: '',
@@ -345,7 +367,6 @@ export function DebugPanel() {
         const linkEl = sidebarEl ? sidebarEl.querySelector(`a[href="${href}"]`) as HTMLElement : null
         if (linkEl) {
           const linkRect = linkEl.getBoundingClientRect()
-          const linkComputed = window.getComputedStyle(linkEl)
           navItem.parentLinkVisible = linkRect.width > 0 && linkRect.height > 0
           navItem.parentLinkWidth = Math.round(linkRect.width)
           navItem.parentLinkHeight = Math.round(linkRect.height)
