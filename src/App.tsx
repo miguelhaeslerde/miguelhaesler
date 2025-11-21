@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { LandingPage } from "@/components/LandingPage"
 import { ThemeProvider } from "@/contexts/ThemeContext"
-import { LiquidCursor } from "@/components/LiquidCursor"
-import { Impressum } from "@/pages/Impressum"
-import { Datenschutz } from "@/pages/Datenschutz"
-import { AGB } from "@/pages/AGB"
+// Temporär auskommentiert für Wartungsmodus:
+// import { BrowserRouter, Routes, Route } from "react-router-dom"
+// import { LandingPage } from "@/components/LandingPage"
+// import { LiquidCursor } from "@/components/LiquidCursor"
+// import { Impressum } from "@/pages/Impressum"
+// import { Datenschutz } from "@/pages/Datenschutz"
+// import { AGB } from "@/pages/AGB"
 
 function MaintenancePage() {
   return (
